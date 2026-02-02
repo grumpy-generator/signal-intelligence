@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+const { useState, useEffect } = React;
 
 const mockSignals = [
   {
@@ -133,7 +133,7 @@ const intentConfig = {
   churning: { icon: '👋', color: '#e74c3c' }
 };
 
-export default function SignalDashboard() {
+function SignalDashboard() {
   const [signals, setSignals] = useState(mockSignals);
   const [filter, setFilter] = useState('all');
   const [selectedSignal, setSelectedSignal] = useState(null);
