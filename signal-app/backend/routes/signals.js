@@ -96,3 +96,15 @@ signalsRouter.post('/bulk-action', (req, res) => {
 
 // Export signals store for webhook route
 export { signals };
+
+// Public demo endpoint (no auth required)
+signalsRouter.get('/demo/public', (req, res) => {
+  const result = Array.from(signals.values())
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 20);
+  
+  res.json({
+    signals: result,
+    total: signals.size
+  });
+});
